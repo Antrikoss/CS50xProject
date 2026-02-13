@@ -5,8 +5,8 @@ import requests
 app = Flask(__name__)
 
 # API key & secret key
-API_key = "5a15e1a56bcd8e09f163195e5ff276da"
-app.secret_key = "Webal"
+API_key = "API_key"
+app.secret_key = "Secret_key"
 
 
 @app.route("/", methods=["GET", "POST"])
