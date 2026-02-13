@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Select Location
+{% endblock %}
+
+{% block content %}
+    <div id="form">
+        <h1 id="SlctLoc">Select Location</h1>
+        <form action="/index" method="GET">
+            <div class="search">
+                <span id="span1" class="material-symbols-outlined">location_searching</span>
+                <input name="location" autocomplete="off" autofocus class="input" id="input" placeholder="Location" type="text">
+                <input type="hidden" name="Day" value="0">
+                <button id="searchloc" type="submit"><span id="span2" class="material-symbols-outlined">search</span></button>
+            </div>
+        </form>
+    <div>
+{% endblock %}

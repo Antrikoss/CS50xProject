@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}Webal{% endblock %}
+
+{% block content %}
+
+    <div id="locationsearch">
+        <form action="/index" method="GET">
+            <input name="location" autocomplete="off" class="input1" id="input1" placeholder="Location" type="text">
+            <input type="hidden" name="Day" value="0">
+            <button id="searchloc1" type="submit"><span id="spansearch" class="material-symbols-outlined">search</span></button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="left-side">
+            <h3><span class="material-symbols-outlined">location_on</span>{{ location}} {{temperature}}°C</h3>
+            <img id="img" src="{{ img_key }}">
+        </div>
+        <div class="weatherdetails" class="days">
+            <div class="days">
+                <form action="/index" method="GET">
+                    <button type="submit" value="0" name="Day" class="day" id="d0">
+                        <span class="material-symbols-outlined">{{ days[0][2] }}</span>
+                        <h3>{{ days[0][0] }} {{ days[0][3] }}</h3>
+                        {{ days[0][1] }}°C
+                    </button>
+                </form>
+                <form action="/index" method="GET">
+                    <button type="submit" value="1" name="Day" class="day" id="d1">
+                        <span class="material-symbols-outlined">{{ days[1][2] }}</span>
+                        <h3>{{ days[1][0] }} {{ days[1][3] }}</h3>
+                        {{ days[1][1] }}°C
+                    </button>
+                </form>
+                <form action="/index" method="GET">
+                    <button type="submit" value="2" name="Day" class="day" id="d2">
+                        <span class="material-symbols-outlined">{{ days[2][2] }}</span>
+                        <h3>{{ days[2][0] }} {{ days[2][3] }}</h3>
+                        {{ days[2][1] }}°C
+                    </button>
+                </form>
+                <form action="/index" method="GET">
+                    <button type="submit" value="3" name="Day" class="day" id="d3">
+                        <span class="material-symbols-outlined">{{ days[3][2] }}</span>
+                        <h3>{{ days[3][0] }} {{ days[3][3] }}</h3>
+                        {{ days[3][1] }}°C
+                    </button>
+                </form>
+                <form action="/index" method="GET">
+                    <button type="submit" value="4" name="Day" class="day" id="d4">
+                        <span class="material-symbols-outlined">{{ days[4][2] }}</span>
+                        <h3>{{ days[4][0] }} {{ days[4][3] }}</h3>
+                        {{ days[4][1] }}°C
+                    </button>
+                </form>
+            </div>
+            <div class="details">
+                <table>
+                    <tr>
+                        <td>Temperature: <a class="info">{{ temperature }}°C</a></td>
+                        <td>Wind Gust: <a class="info">{{ wind_gust }}km/h</a></td>
+                    </tr>
+                    <tr>
+                        <td>Humidity: <a class="info">{{ humidity }}%</a></td>
+                        <td>Visibility: <a class="info">{{ visibility }}km</a></td>
+                    </tr>
+                    <tr>
+                        <td>Wind Speed: <a class="info">{{ wind_speed }}km/h</a></td>
+                        <td>Pressure: <a class="info">{{ pressure }}mb</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="icon">
+                <span class="material-symbols-outlined">{{ icon_key }}</span>
+                <h4>{{ temperature}}°C</h4>
+                <h4>{{ weather }}</h4>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const days = [d0, d1, d2, d3, d4];
+        let Day = new URLSearchParams(window.location.search).get("Day");
+
+        for (let i = 0; i < days.length; i++) {
+            if (days[i].id[1] === "" + Day) {
+                localStorage.setItem("buttonClicked", days[i].id);
+            }
+        }
+
+        let buttonClicked = localStorage.getItem("buttonClicked");
+
+        if (buttonClicked) {
+            document.getElementById("" + buttonClicked).style.outline = "solid 5px";
+            document.getElementById("" + buttonClicked).style.outlineColor = "#2962ff";
+        }
+    </script>
+
+{% endblock %}
