@@ -1,6 +1,6 @@
 # Webal
 
-Webal is my CS50 final project — a **full-stack weather forecasting web application** built with Flask.  
+Webal is my [CS50](https://pll.harvard.edu/course/cs50-introduction-computer-science) final project — a **full-stack weather forecasting web application** built with Flask.  
 It allows users to search for any location and view current weather conditions along with a 5-day forecast in a clean and user-friendly interface.
 
 <img width="1301" alt="Screenshot 2026-04-12 104928" src="https://github.com/Antrikoss/CS50xProject/blob/ad42b28d5b5784e6a5530727bb867c64495d1bc4/Screenshot%202026-04-12%20104928.png">
@@ -48,17 +48,18 @@ python -m flask run
 ```
 
 ## 📁 Project Structure
+
 ```bash
 CS50xProject/
-|-- static/
-|   |-- Graphics/
-|   |-- styles.css
-|-- templates/
-|   |-- error.html
-|   |-- index.html
-|   |-- layout.html
-|   |-- open.html
-|-- app.py
-|-- README.md
-|-- requirements.txt
+|── static/
+|   |── Graphics/
+|   |── styles.css
+|── templates/
+|   |── error.html
+|   |── index.html
+|   |── layout.html
+|   |── open.html
+|── app.py
+|── README.md
+|── requirements.txt
 ```
